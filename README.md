@@ -29,51 +29,43 @@ go install github.com/rwatts3/slack-mcp-go@latest
 
     Add the server to your MCP client's configuration file.
 
-    #### Generic MCP Client
-
-    Here is an example configuration for a generic MCP client:
-
-    ```json
-    {
-      "servers": [
-        {
-          "name": "slack-mcp-go",
-          "command": ["slack-mcp-go"],
-          "transport": "stdio"
-        }
-      ]
-    }
-    ```
-
-    #### Claude
-
-    For Claude, you can add the server to your `~/.anthropic/mcp_servers.json` file. Make sure to use the full path to the binary if it's not in your `PATH`.
-
-    ```json
-    {
-      "servers": [
-        {
-          "name": "slack-mcp-go",
-          "command": ["/path/to/your/go/bin/slack-mcp-go"],
-          "transport": "stdio"
-        }
-      ]
-    }
-    ```
-
     #### VSCode Copilot
 
-    For VSCode Copilot, you can add the server to your `settings.json` file. Make sure to use the full path to the binary if it's not in your `PATH`.
+    For VSCode Copilot, add the following to your `settings.json` file. You can open this file by running the "Preferences: Open User Settings (JSON)" command in VSCode.
+
+    Make sure the `command` points to the location of your `slack-mcp-go` binary. If you used `go install`, this will typically be in your `GOPATH/bin`. You can find your `GOPATH` by running `go env GOPATH`.
 
     ```json
     {
       "github.copilot.mcp.servers": {
         "slack-mcp-go": {
-          "command": ["/path/to/your/go/bin/slack-mcp-go"],
-          "transport": "stdio"
+          "command": ["/Users/rwatts/go/bin/slack-mcp-go"],
+          "transport": "stdio",
+          "env": {
+            "SLACK_BOT_TOKEN": "your-slack-bot-token"
+          }
         }
       }
     }
+    ```
+
+    #### Claude Desktop
+
+    For Claude Desktop, create or edit the `~/.anthropic/mcp_servers.json` file.
+
+    Make sure the `command` points to the location of your `slack-mcp-go` binary. If you used `go install`, this will typically be in your `GOPATH/bin`. You can find your `GOPATH` by running `go env GOPATH`.
+
+    ```json
+    [
+      {
+        "name": "slack-mcp-go",
+        "command": ["/Users/rwatts/go/bin/slack-mcp-go"],
+        "transport": "stdio",
+        "env": {
+          "SLACK_BOT_TOKEN": "your-slack-bot-token"
+        }
+      }
+    ]
     ```
 
 3.  **Run the server:**
