@@ -12,7 +12,7 @@ This project is a Model Context Protocol (MCP) server for Slack, written in Go. 
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/slack-mcp-go.git
+    git clone https://github.com/rwatts3/slack-mcp-go.git
     cd slack-mcp-go
     ```
 
