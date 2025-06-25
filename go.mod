@@ -1,4 +1,4 @@
-module slack-mcp-go
+module github.com/rwatts3/slack-mcp-go
 
 go 1.23.5
 

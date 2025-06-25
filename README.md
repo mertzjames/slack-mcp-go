@@ -7,16 +7,17 @@ This project is a Model Context Protocol (MCP) server for Slack, written in Go. 
 - Go 1.18 or later
 - A Slack Bot Token
 
+## Installation
+
+You can install the server using `go install`:
+
+```bash
+go install github.com/rwatts3/slack-mcp-go@latest
+```
+
 ## Setup
 
-1.  **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/rwatts3/slack-mcp-go.git
-    cd slack-mcp-go
-    ```
-
-2.  **Set the Slack Bot Token:**
+1.  **Set the Slack Bot Token:**
 
     Export your Slack bot token as an environment variable:
 
@@ -24,19 +25,25 @@ This project is a Model Context Protocol (MCP) server for Slack, written in Go. 
     export SLACK_BOT_TOKEN="your-slack-bot-token"
     ```
 
-3.  **Build the server:**
+2.  **Configure your MCP client:**
 
-    ```bash
-    go build
+    Add the server to your MCP client's configuration file. Here is an example configuration:
+
+    ```json
+    {
+      "servers": [
+        {
+          "name": "slack-mcp-go",
+          "command": ["slack-mcp-go"],
+          "transport": "stdio"
+        }
+      ]
+    }
     ```
 
-4.  **Run the server:**
+3.  **Run the server:**
 
-    The server communicates over stdio.
-
-    ```bash
-    ./slack-mcp-go
-    ```
+    The server will be started automatically by your MCP client when a tool is called.
 
 ## Available Tools
 
