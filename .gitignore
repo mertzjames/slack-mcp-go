@@ -1,0 +1,18 @@
+# Binaries
+slack-mcp-go
+
+# Log files
+/tmp/slack-mcp-go.log
+
+# Go build outputs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test outputs
+*.test
+
+# Go workspace file
+go.work
