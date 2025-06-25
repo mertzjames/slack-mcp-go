@@ -40,7 +40,8 @@ go install github.com/rwatts3/slack-mcp-go@latest
       "github.copilot.mcp.servers": {
         "slack-mcp-go": {
           "command": ["/Users/rwatts/go/bin/slack-mcp-go"],
-          "transport": "stdio",
+          "args": [],
+          "type": "stdio",
           "env": {
             "SLACK_BOT_TOKEN": "your-slack-bot-token"
           }
