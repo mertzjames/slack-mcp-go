@@ -27,7 +27,11 @@ go install github.com/rwatts3/slack-mcp-go@latest
 
 2.  **Configure your MCP client:**
 
-    Add the server to your MCP client's configuration file. Here is an example configuration:
+    Add the server to your MCP client's configuration file.
+
+    #### Generic MCP Client
+
+    Here is an example configuration for a generic MCP client:
 
     ```json
     {
@@ -38,6 +42,37 @@ go install github.com/rwatts3/slack-mcp-go@latest
           "transport": "stdio"
         }
       ]
+    }
+    ```
+
+    #### Claude
+
+    For Claude, you can add the server to your `~/.anthropic/mcp_servers.json` file. Make sure to use the full path to the binary if it's not in your `PATH`.
+
+    ```json
+    {
+      "servers": [
+        {
+          "name": "slack-mcp-go",
+          "command": ["/path/to/your/go/bin/slack-mcp-go"],
+          "transport": "stdio"
+        }
+      ]
+    }
+    ```
+
+    #### VSCode Copilot
+
+    For VSCode Copilot, you can add the server to your `settings.json` file. Make sure to use the full path to the binary if it's not in your `PATH`.
+
+    ```json
+    {
+      "github.copilot.mcp.servers": {
+        "slack-mcp-go": {
+          "command": ["/path/to/your/go/bin/slack-mcp-go"],
+          "transport": "stdio"
+        }
+      }
     }
     ```
 
