@@ -15,6 +15,7 @@ You can install the server using `go install`:
 go install github.com/rwatts3/slack-mcp-go@latest
 ```
 
+
 ## Setup
 
 1.  **Set the Slack Bot Token:**
